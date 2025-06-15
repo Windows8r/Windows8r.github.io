@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Menghubungkan ke Minecraft...</title>
+  <script>
+    window.onload = function () {
+      // Coba redirect otomatis
+      window.location.href = "minecraft://?addExternalServer=ServerSMP|bcs1.bandrewserver.my.id:19138";
+
+      // Setelah 3 detik, tampilkan fallback manual
+      setTimeout(function () {
+        document.getElementById("fallback").style.display = "block";
+      }, 3000);
+    }
+  </script>
+</head>
+<body>
+  <p>Menghubungkan ke Minecraft Bedrock...</p>
+
+  <div id="fallback" style="display: none;">
+    <p>Jika tidak berpindah ke Minecraft, 
+      <a href="minecraft://?addExternalServer=ServerSMP|bcs1.bandrewserver.my.id:19138">klik di sini</a>.
+    </p>
+  </div>
+</body>
+</html>
