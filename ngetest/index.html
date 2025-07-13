@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamburger Menu</title>
+  <title>Menu Toggle</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Hamburger icon */
     .menu-toggle {
       width: 30px;
       height: 25px;
@@ -12,6 +17,7 @@
       flex-direction: column;
       justify-content: space-between;
       cursor: pointer;
+      margin: 20px;
     }
 
     .menu-toggle span {
@@ -20,16 +26,54 @@
       background-color: #333;
       border-radius: 2px;
     }
+
+    /* Menu list, disembunyikan awalnya */
+    .menu-list {
+      display: none;
+      flex-direction: column;
+      margin: 10px 20px;
+    }
+
+    .menu-list a {
+      text-decoration: none;
+      color: #333;
+      padding: 8px 0;
+    }
+
+    .menu-list a:hover {
+      color: #007BFF;
+    }
+
+    /* Tampilkan menu saat class 'active' ditambahkan */
+    .menu-list.active {
+      display: flex;
+    }
   </style>
 </head>
 <body>
 
 <!-- Hamburger icon -->
-<div class="menu-toggle">
+<div class="menu-toggle" id="menuToggle">
   <span></span>
   <span></span>
   <span></span>
 </div>
+
+<!-- Menu yang muncul saat diklik -->
+<nav class="menu-list" id="menuList">
+  <a href="#">Menu 1</a>
+  <a href="#">Menu 2</a>
+</nav>
+
+<!-- JavaScript -->
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const menuList = document.getElementById('menuList');
+
+  menuToggle.addEventListener('click', () => {
+    menuList.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
